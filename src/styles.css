@@ -1,1 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+    font-family: sans-serif;
+}
+.container{
+    margin-left: 5%;
+    margin-right:5%;
+}
+.common-form{
+ text-align: center;
+ display: flex;
+ margin: auto;
+ flex-direction: column;
+ width: 300px;
+}
+.form-input{
+height: 35px;
+margin-bottom: 20px;
+padding-left: 10px;
+border: 1px solid #557153;
+color: rgb(0, 0, 0);
+}
+.form-btn{
+height: 35px;
+border:1px solid #557153;
+cursor: pointer;
+
+}
+
+.error-p{
+    color: red;
+}
+.p_message{
+    color: green;
+    text-align: center;
+}
+.carousel-caption{
+    background-color: #00000082;
+    border-radius: 5px;
+}
+.carousel-control-next-icon, .carousel-control-prev-icon {
+   background-color: black;
+   border-radius: 5px;
+}
+.product-list-wrapper{
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+.product-item{
+    border: 1px solid #ddd;
+    margin-right: 25px;
+    margin-bottom: 40px;
+}
+.product-item .product-details{
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+}
+.product-item img {
+    width: 200px;
+    height: 300px;
+    object-fit: contain;
+}
+.product-item .name-head{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+.product-item .product-price {
+    display: flex;
+    justify-content: center;
+}
+
+.product-item .product-details h6 {
+    text-align: center;
+}
+.product-footer{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.invalid-input{
+  color: red;
+  font-size: 12px;
+  margin-top: -20px;
+}
+button:disabled{
+    cursor: not-allowed
+}
+
+.max-width{
+    width: 100%;
+}

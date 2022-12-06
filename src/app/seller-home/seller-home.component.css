@@ -1,0 +1,23 @@
+table {
+    text-align: left;
+    color: #557153;
+    border-collapse: collapse;
+}
+table td, table th  {
+    border: 1px solid #557153;
+    padding: 10px;
+    min-height: 160px;
+}
+img{
+    width: 100px;
+    height: 100px;
+}
+.icon{
+    align-items: center;
+    justify-content: center;
+}
+.adjust-update-link{
+    margin-left: 10px;
+    cursor: pointer;
+
+}
