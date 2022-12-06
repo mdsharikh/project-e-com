@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   menuType: string = 'default';
   searchResult: undefined | product[];
   userName: string = '';
-  cartItems=0;
+  cartItems = 0;
   constructor(private route: Router, private product: ProductService) {}
   ngOnInit(): void {
     this.route.events.subscribe((val: any) => {
@@ -30,20 +30,20 @@ export class HeaderComponent implements OnInit {
           let userData = userStore && JSON.parse(userStore);
           this.userName = userData.name;
           this.menuType = 'user';
-          this.product.getCartList(userData.id)
+          this.product.getCartList(userData.id);
         } else {
           this.menuType = 'default';
         }
       }
     });
     let cartData = localStorage.getItem('localCart');
-    if(cartData) {
-      this.cartItems = JSON.parse(cartData).length
+    if (cartData) {
+      this.cartItems = JSON.parse(cartData).length;
     }
 
-    this.product.cartData.subscribe((items)=> {
-     this.cartItems=items.length
-    })
+    this.product.cartData.subscribe((items) => {
+      this.cartItems = items.length;
+    });
   }
   logout() {
     localStorage.removeItem('seller');
@@ -52,7 +52,7 @@ export class HeaderComponent implements OnInit {
   userLogout() {
     localStorage.removeItem('user');
     this.route.navigate(['/user-auth']);
-    this.product.cartData.emit([])
+    this.product.cartData.emit([]);
   }
   searchProduct(query: KeyboardEvent) {
     if (query) {

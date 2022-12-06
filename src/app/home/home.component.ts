@@ -5,21 +5,20 @@ import { ProductService } from '../service/product.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  popularProducts:undefined | product[] ;
-  trendyProduct:undefined | product[]
-  constructor(private product:ProductService) { }
+  popularProducts: undefined | product[];
+  trendyProduct: undefined | product[];
+  constructor(private product: ProductService) {}
 
   ngOnInit(): void {
-    this.product.popularProducts().subscribe((data)=>{
+    this.product.popularProducts().subscribe((data) => {
       console.log(data);
-      this.popularProducts=data;
+      this.popularProducts = data;
     });
-    this.product.trendyProduct().subscribe((data)=>{
-      this.trendyProduct=data;
-    })
- 
-}
+    this.product.trendyProduct().subscribe((data) => {
+      this.trendyProduct = data;
+    });
+  }
 }

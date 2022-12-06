@@ -8,8 +8,8 @@ import { signUp } from '../data-type';
   styleUrls: ['./seller-auth.component.css'],
 })
 export class SellerAuthComponent implements OnInit {
-  showLogin= false;
-  authError:string=''
+  showLogin = false;
+  authError: string = '';
   constructor(private seller: SellerService) {}
 
   ngOnInit(): void {
@@ -17,24 +17,23 @@ export class SellerAuthComponent implements OnInit {
   }
   signup(data: any): void {
     console.log(data);
-    this.seller.userSignUp(data)
+    this.seller.userSignUp(data);
   }
   login(data: signUp): void {
-    this.authError="";
+    this.authError = '';
 
     this.seller.userLogin(data);
-    this.seller.isLoginError.subscribe((isError)=>{
-    if(isError) {
-       this.authError="Email Or Password Not Valid";
-    }
-    })
+    this.seller.isLoginError.subscribe((isError) => {
+      if (isError) {
+        this.authError = 'Email Or Password Not Valid';
+      }
+    });
   }
 
-  openLogin( ) {
-
-    this.showLogin=true
+  openLogin() {
+    this.showLogin = true;
   }
   openSignUp() {
-    this.showLogin=false
+    this.showLogin = false;
   }
 }

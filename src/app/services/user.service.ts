@@ -7,7 +7,7 @@ import { login, signUp } from '../data-type';
   providedIn: 'root',
 })
 export class UserService {
-  invalidUserAuth=new EventEmitter<boolean>(false)
+  invalidUserAuth = new EventEmitter<boolean>(false);
   constructor(private http: HttpClient, private router: Router) {}
   userSignUp(user: signUp) {
     console.log(user);
@@ -21,21 +21,25 @@ export class UserService {
         }
       });
   }
-  userLogin(data:login) {
-     this.http.get<signUp[]>('http://localhost:3000/users?email=$(data.email)&password=${data.password}',
-     {observe:'response'}).subscribe((result)=>{
-      if(result && result.body?.length) {
-        this.invalidUserAuth.emit(true)
-        localStorage.setItem('user', JSON.stringify(result.body[0]));
+  userLogin(data: login) {
+    this.http
+      .get<signUp[]>(
+        'http://localhost:3000/users?email=$(data.email)&password=${data.password}',
+        { observe: 'response' }
+      )
+      .subscribe((result) => {
+        if (result && result.body?.length) {
+          this.invalidUserAuth.emit(true);
+          localStorage.setItem('user', JSON.stringify(result.body[0]));
           this.router.navigate(['/']);
-      } else {
- this.invalidUserAuth.emit(true)
-      }
-     })
+        } else {
+          this.invalidUserAuth.emit(true);
+        }
+      });
   }
   userAuthReload() {
-    if(localStorage.getItem('user')) {
-      this.router.navigate(['/'])
+    if (localStorage.getItem('user')) {
+      this.router.navigate(['/']);
     }
   }
 }

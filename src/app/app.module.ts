@@ -20,7 +20,6 @@ import { CartPageComponent } from './cart-page/cart-page.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +36,6 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     CartPageComponent,
     CheckoutComponent,
     MyOrdersComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -45,9 +43,9 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

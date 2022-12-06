@@ -12,7 +12,7 @@ export class SellerUpdateProductComponent implements OnInit {
   productData: undefined | product;
   productMessage: undefined | string;
   constructor(private route: ActivatedRoute, private product: ProductService) {}
-  
+
   ngOnInit(): void {
     let productId = this.route.snapshot.paramMap.get('id');
     console.log(productId);
@@ -20,11 +20,11 @@ export class SellerUpdateProductComponent implements OnInit {
       this.product.getProduct(productId).subscribe((data) => {
         console.log(data);
         this.productData = data;
-      }); 
+      });
   }
   submit(data: any) {
-    if(this.productData) {
-      data.id=this.productData.id;
+    if (this.productData) {
+      data.id = this.productData.id;
     }
     this.product.updateProduct(data).subscribe((result) => {
       if (result) {

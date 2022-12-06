@@ -54,13 +54,13 @@ const routes: Routes = [
     component: CartPageComponent,
   },
   {
-    path:'checkout',
+    path: 'checkout',
     component: CheckoutComponent,
   },
   {
-    path:'my-orders',
-    component: MyOrdersComponent
-  }
+    path: 'my-orders',
+    component: MyOrdersComponent,
+  },
 ];
 
 @NgModule({

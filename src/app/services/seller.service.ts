@@ -8,48 +8,44 @@ import { Router } from '@angular/router';
 })
 export class SellerService {
   isSellerLoggedIn = new BehaviorSubject<boolean>(false);
-  isLoginError= new EventEmitter<boolean>(false)
+  isLoginError = new EventEmitter<boolean>(false);
   constructor(private http: HttpClient, private router: Router) {}
   userSignUp(data: any) {
     console.log(data);
-    
-   return this.http
-      .post('http://localhost:3000/seller', data,{observe:'response'} ).subscribe(result=>{
+
+    return this.http
+      .post('http://localhost:3000/seller', data, { observe: 'response' })
+      .subscribe((result) => {
         console.log(result);
-        if(result) {
+        if (result) {
           localStorage.setItem('seller', JSON.stringify(result.body));
-        this.router.navigate(['seller-home']);
+          this.router.navigate(['seller-home']);
         }
       });
-      
-   
-      //   
+
+    //
   }
-  reloadSeller(){
-    if(localStorage.getItem('seller')) {
-      this.isSellerLoggedIn.next(true)
+  reloadSeller() {
+    if (localStorage.getItem('seller')) {
+      this.isSellerLoggedIn.next(true);
       this.router.navigate(['seller-home']);
     }
   }
-  userLogin(data:login) {
+  userLogin(data: login) {
     this.http
-      .get('http://localhost:3000/seller?email=${data.name}&password=${data.password}',{observe:'response'})
-      .subscribe((result:any) => {
+      .get(
+        'http://localhost:3000/seller?email=${data.name}&password=${data.password}',
+        { observe: 'response' }
+      )
+      .subscribe((result: any) => {
         console.log(data);
-        if(result && result.body && result.body.length){
+        if (result && result.body && result.body.length) {
           localStorage.setItem('seller', JSON.stringify(result.body));
           this.router.navigate(['seller-home']);
-  
         } else {
-          console.log("login failed");
-          this.isLoginError.emit(true)
+          console.log('login failed');
+          this.isLoginError.emit(true);
         }
-        
-       
       });
-    
   }
-
 }
-
-

@@ -104,9 +104,8 @@ export class ProductDetailsComponent implements OnInit {
             this.product.getCartList(userId);
           }
         });
-      
+
       this.removeCart = false;
     }
   }
-
 }

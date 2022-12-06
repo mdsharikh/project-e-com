@@ -28,13 +28,15 @@
         placeholder="Enter Email"
       />
       <button class="form-btn">signUp</button>
-      <a class="auth-toggle-link" (click)="openLogin()" >Already Have Account Click To login</a>
+      <a class="auth-toggle-link" (click)="openLogin()"
+        >Already Have Account Click To login</a
+      >
     </form>
   </div>
   <!-- login area -->
   <div *ngIf="showLogin" class="login">
     <h1>Seller login</h1>
-    <p class="error-p" >{{authError}}</p>
+    <p class="error-p">{{ authError }}</p>
     <form
       #sellerLogin="ngForm"
       (ngSubmit)="login(sellerLogin.value)"
@@ -54,9 +56,11 @@
         name="password"
         placeholder="Enter password"
       />
-      
+
       <button class="form-btn">login</button>
-      <a class="auth-toggle-link" (click)="openSignUp()" >Don't Have Account? Click To sign-Up </a>
+      <a class="auth-toggle-link" (click)="openSignUp()"
+        >Don't Have Account? Click To sign-Up
+      </a>
     </form>
   </div>
 </div>
